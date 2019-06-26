@@ -3,7 +3,7 @@
 <h2>3-1 基础插件安装（1）</h2>
 <p>安装react-router，axios，less-loader:yarn add react-router-dom axios less-loader</p>
 <p>yarn eject:弹出配置</p>
-<p></p>
+<p>修改config/webpack.config 增加less配置</p>
 <p></p>
 <p></p>
 <p></p>
