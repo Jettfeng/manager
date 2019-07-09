@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Card, Button, Icon, Radio } from 'antd';
-import './index.less'
+import './ui.less'
 export default class Buttons extends Component {
     constructor(props) {
         super(props)
@@ -40,7 +40,7 @@ export default class Buttons extends Component {
                     <Button shape="circle" loading={this.state.loading}></Button>
                     <Button type="primary" onClick={this.handleCloseLoding}>关闭</Button>
                 </Card>
-                <Card title="按钮组">
+                <Card title="按钮组" style={{ marginBottom: 10 }}>
                     <Button.Group>
                         <Button type="primary" icon="left">前进</Button>
                         <Button type="primary" icon="right">后退</Button>
