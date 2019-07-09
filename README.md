@@ -24,6 +24,7 @@
 <h2>5-3 Modal组件使用讲解（1）</h2>
 <h2>5-4 Modal组件使用讲解（2）</h2>
 <h2>5-5 Loading组件使用</h2>
+<h2>5-6 Notification组件使用</h2>
 <p></p>
 <p></p>
 <p></p>
