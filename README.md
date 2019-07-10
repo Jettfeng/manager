@@ -27,6 +27,7 @@
 <h2>5-6 Notification组件使用</h2>
 <h2>5-7 Message组件使用</h2>
 <h2>5-8 Tabs组件使用（1）</h2>
+<h2>5-9 Tabs组件使用（2）</h2>
 <p></p>
 <p></p>
 <p></p>
