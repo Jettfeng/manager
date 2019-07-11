@@ -4,6 +4,15 @@ import { Card, Row, Col, Modal } from 'antd'
 export default class Gallery extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            visible: false
+        }
+    }
+    openGallery = (imgSrc) => {
+        this.setState({
+            visible: true,
+            currentImg: '/gallery/' + imgSrc
+        })
     }
     render() {
         const imgs = [
@@ -14,7 +23,9 @@ export default class Gallery extends React.Component {
             ['21.png', '22.png', '23.png', '24.png', '25.png']
         ]
         const imgList = imgs.map((list) => list.map((item) =>
-            <Card cover={<img src={'/gallery/' + item} />} key={item}>
+            <Card
+                style={{ marginBottom: 10 }}
+                cover={<img src={'/gallery/' + item} onClick={() => this.openGallery(item)} />} key={item}>
                 <Card.Meta title="Europe Street beat" description="www.instagram.com" />
             </Card>
         ))
@@ -39,6 +50,19 @@ export default class Gallery extends React.Component {
                         {imgList[4]}
                     </Col>
                 </Row>
+                <Modal
+                    width={300}
+                    height={500}
+                    visible={this.state.visible}
+                    title="图片画廊"
+                    footer={null}
+                    onCancel={() => {
+                        this.setState({
+                            visible: false
+                        })
+                    }}>
+                    <img src={this.state.currentImg} alt="" style={{ width: '100%' }} />
+                </Modal>
             </div>
         );
     }
