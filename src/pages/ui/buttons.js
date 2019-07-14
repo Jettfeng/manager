@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, Button, Icon, Radio } from 'antd';
+import { Card, Button, Radio } from 'antd';
 import './ui.less'
 export default class Buttons extends Component {
     constructor(props) {
