@@ -40,7 +40,8 @@ export default class BasicTable extends React.Component {
                     key: 2
                 }
             ],
-            dataSource2: []
+            dataSource2: [],
+            selectedRows: []
         }
     }
     componentDidMount() {
@@ -60,7 +61,11 @@ export default class BasicTable extends React.Component {
                 dataSource2.forEach((item, index) => {
                     item.key = index
                 })
-                this.setState({ dataSource2 })
+                this.setState({
+                    dataSource2,
+                    selectedRowKeys: [],
+                    selectedRows: null
+                })
             }
         })
     }
@@ -69,6 +74,25 @@ export default class BasicTable extends React.Component {
         this.setState({
             selectedRowKeys: selectKey,
             selectedItem: record
+        })
+    }
+    handleDelete = () => {
+        let rows = this.state.selectedRows
+        if (rows.length == 0) {
+            message.warn('请选择需要删除的数据')
+            return
+        }
+        let ids = []
+        rows.map((item) => {
+            ids.push(item.id)
+        })
+        Modal.confirm({
+            title: '删除提示',
+            content: `您确定要删除这些数据吗？${ids.join(',')}`,
+            onOk: () => {
+                message.success('删除成功');
+                this.request();
+            }
         })
     }
     render() {
@@ -136,6 +160,16 @@ export default class BasicTable extends React.Component {
             type: 'radio',
             selectedRowKeys
         }
+        const rowCheckSelection = {
+            type: 'checkbox',
+            selectedRowKeys,
+            onChange: (selectedRowKeys, selectedRows) => {
+                this.setState({
+                    selectedRowKeys,
+                    selectedRows
+                })
+            }
+        }
         return (
             <div>
                 <Card title="基础表格">
@@ -155,6 +189,17 @@ export default class BasicTable extends React.Component {
                             };
                         }}
                         columns={columns} dataSource={this.state.dataSource2} pagination={false} />
+                </Card>
+                <Card title="Mock-多选" style={{ margin: '10px 0' }}>
+                    <div style={{ marginBottom: 10 }}>
+                        <Button onClick={this.handleDelete}>删除</Button>
+                    </div>
+                    <Table
+                        bordered
+                        rowSelection={rowCheckSelection}
+                        columns={columns}
+                        dataSource={this.state.dataSource2}
+                        pagination={false} />
                 </Card>
             </div>
         );
