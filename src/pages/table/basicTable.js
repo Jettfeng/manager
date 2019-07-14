@@ -64,6 +64,13 @@ export default class BasicTable extends React.Component {
             }
         })
     }
+    onRowClick = (record, index) => {
+        let selectKey = [index]
+        this.setState({
+            selectedRowKeys: selectKey,
+            selectedItem: record
+        })
+    }
     render() {
         const columns = [
             {
@@ -124,13 +131,30 @@ export default class BasicTable extends React.Component {
                 dataIndex: 'time'
             }
         ]
+        const selectedRowKeys = this.state.selectedRowKeys
+        const rowSelection = {
+            type: 'radio',
+            selectedRowKeys
+        }
         return (
             <div>
                 <Card title="基础表格">
                     <Table bordered columns={columns} dataSource={this.state.dataSource} pagination={false} />
                 </Card>
-                <Card title="动态数据渲染表格" style={{ margin: '10px 0' }}>
+                <Card title="动态数据渲染表格-Mock" style={{ margin: '10px 0' }}>
                     <Table bordered columns={columns} dataSource={this.state.dataSource2} pagination={false} />
+                </Card>
+                <Card title="Mock-单选" style={{ margin: '10px 0' }}>
+                    <Table bordered
+                        rowSelection={rowSelection}
+                        onRow={(record, index) => {
+                            return {
+                                onClick: () => {
+                                    this.onRowClick(record, index)
+                                }
+                            };
+                        }}
+                        columns={columns} dataSource={this.state.dataSource2} pagination={false} />
                 </Card>
             </div>
         );
