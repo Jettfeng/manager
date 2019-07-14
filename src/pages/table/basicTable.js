@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Table, Modal, Button, message } from 'antd'
 import axios from '../../axios/index'
+import Utils from './../../utils/utils';
 export default class BasicTable extends React.Component {
     constructor(props) {
         super(props)
@@ -41,7 +42,10 @@ export default class BasicTable extends React.Component {
                 }
             ],
             dataSource2: [],
-            selectedRows: []
+            selectedRows: [],
+            params: {
+                page: 1
+            }
         }
     }
     componentDidMount() {
@@ -57,14 +61,20 @@ export default class BasicTable extends React.Component {
             }
         }).then((res) => {
             if (res.code === 0) {
-                let dataSource2 = res.result
+                let dataSource2 = res.result.list
                 dataSource2.forEach((item, index) => {
                     item.key = index
                 })
                 this.setState({
                     dataSource2,
                     selectedRowKeys: [],
-                    selectedRows: null
+                    selectedRows: null,
+                    pagination: Utils.pagination(res, (current) => {
+                        this.setState({
+                            params: { page: current }
+                        })
+                        this.request();
+                    })
                 })
             }
         })
@@ -200,6 +210,14 @@ export default class BasicTable extends React.Component {
                         columns={columns}
                         dataSource={this.state.dataSource2}
                         pagination={false} />
+                </Card>
+                <Card title="Mock-表格分页" style={{ margin: '10px 0' }}>
+                    <Table
+                        bordered
+                        columns={columns}
+                        dataSource={this.state.dataSource2}
+                        pagination={this.state.pagination}
+                    />
                 </Card>
             </div>
         );
