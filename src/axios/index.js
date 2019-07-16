@@ -30,6 +30,7 @@ export default class Axios {
                 timeout: 5000,
                 params: (options.data && options.data.params) || ''
             }).then((response) => {
+                console.log(response);
                 if (options.data && options.data.isShowLoading !== false) {
                     loading = document.getElementById('ajaxLoading')
                     loading.style.display = 'none'
