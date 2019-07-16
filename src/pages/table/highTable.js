@@ -194,88 +194,88 @@ export default class BasicTable extends React.Component {
             },
             {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday1',
                 width: 120,
                 dataIndex: 'birthday'
             },
             {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday2',
                 width: 120,
                 dataIndex: 'birthday'
             }, {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday3',
                 width: 120,
                 dataIndex: 'birthday'
             }, {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday4',
                 width: 120,
                 dataIndex: 'birthday'
             }, {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday5',
                 width: 120,
                 dataIndex: 'birthday'
             }, {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday6',
                 width: 120,
                 dataIndex: 'birthday'
             }, {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday7',
                 width: 120,
                 dataIndex: 'birthday'
             }, {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday8',
                 width: 120,
                 dataIndex: 'birthday'
             }, {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday9',
                 width: 120,
                 dataIndex: 'birthday'
             }, {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday10',
                 width: 120,
                 dataIndex: 'birthday'
             }, {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday11',
                 width: 120,
                 dataIndex: 'birthday'
             }, {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday12',
                 width: 120,
                 dataIndex: 'birthday'
             }, {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday13',
                 width: 120,
                 dataIndex: 'birthday'
             }, {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday14',
                 width: 120,
                 dataIndex: 'birthday'
             }, {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday15',
                 width: 120,
                 dataIndex: 'birthday'
             }, {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday16',
                 width: 120,
                 dataIndex: 'birthday'
             }, {
                 title: '生日',
-                key: 'birthday',
+                key: 'birthday17',
                 width: 120,
                 dataIndex: 'birthday'
             },
