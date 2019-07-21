@@ -27,8 +27,50 @@ export default class OrderDetail extends React.Component {
                 this.setState({
                     orderInfo: res.result
                 })
+                this.renderMap(res.result)
             }
         })
+    }
+    // 初始化地图
+    renderMap = (result) => {
+        this.map = new window.BMap.Map("orderDetailMap")
+        this.map.centerAndZoom(new window.BMap.Point(116.404, 39.915), 11)
+        this.addMapControl()
+        this.drawBikeRoute(result.position_list)
+    }
+    // 添加地图控件
+    addMapControl = () => {
+        let map = this.map
+        map.addControl(new window.BMap.ScaleControl({ anchor: window.BMAP_ANCHOR_TOP_RIGHT }))
+        map.addControl(new window.BMap.NavigationControl({ anchor: window.BMAP_ANCHOR_TOP_RIGHT }))
+    }
+    // 绘制用户的行驶路线
+    drawBikeRoute = (positionList) => {
+        console.log(positionList)
+        let map = this.map
+        let startPoint = ''
+        let endPoint = ''
+        if (positionList.length > 0) {
+            let first = positionList[0];
+            let last = positionList[positionList.length-1];
+            // 绘制起点
+            startPoint = new window.BMap.Point(first.lon,first.lat);
+            let startIcon = new window.BMap.Icon('/assets/start_point.png',new window.BMap.Size(36,42),{
+                imageSize:new window.BMap.Size(36,42),
+                anchor: new window.BMap.Size(18, 42)
+            })
+            let startMarker = new window.BMap.Marker(startPoint, { icon: startIcon});
+            this.map.addOverlay(startMarker);
+            // 绘制终点
+            endPoint = new window.BMap.Point(last.lon, last.lat);
+            let endIcon = new window.BMap.Icon('/assets/end_point.png', new window.BMap.Size(36, 42), {
+                imageSize: new window.BMap.Size(36, 42),
+                anchor: new window.BMap.Size(18, 42)
+            })
+            let endMarker = new window.BMap.Marker(endPoint, { icon: endIcon });
+            this.map.addOverlay(endMarker);
+        }
+
     }
     render() {
         const info = this.state.orderInfo || {}
