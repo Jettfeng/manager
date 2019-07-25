@@ -20,6 +20,7 @@ import Order from './pages/order/index'
 import Common from './common'
 import OrderDetail from './pages/order/detail'
 import Permission from './pages/permission'
+import User from './pages/user'
 import Nomatch from './pages/nomatch'
 export default class IRouter extends Component {
     render() {
@@ -49,6 +50,7 @@ export default class IRouter extends Component {
                                     <Route path="/form/reg" component={FormRegister} />
                                     <Route path="/table/basic" component={BasicTable} />
                                     <Route path="/table/high" component={HighTable} />
+                                    <Route path='/user' component={User} />
                                     <Route path="/city" component={City} />
                                     <Route path="/order" component={Order} />
                                     <Route path="/permission" component={Permission} />
