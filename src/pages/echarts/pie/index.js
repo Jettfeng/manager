@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from 'antd'
 import ReactEcharts from 'echarts-for-react';
-import echartTheme from '../echartTheme'
+import echartTheme from '../themeLight'
 // import echarts from 'echarts'
 // 引入 ECharts 主模块
 import echarts from 'echarts/lib/echarts'
@@ -154,7 +154,6 @@ export default class Bar extends React.Component {
                 {
                     name: "订单量",
                     type: 'pie',
-                    radius: ['50%', '80%'],
                     center: ['50%', '60%'],
                     data: [
                         {
@@ -178,14 +177,20 @@ export default class Bar extends React.Component {
                             name: '周五'
                         },
                         {
-                            value: 4670,
+                            value: 3450,
                             name: '周六'
                         },
                         {
                             value: 4654,
                             name: '周日'
                         },
-                    ]
+                    ].sort((a, b) => a.value - b.value),
+                    roseType: 'radius',
+                    animationType: 'scale',
+                    animationEasing: 'elasticOut',
+                    animationDelay: function (idx) {
+                        return Math.random() * 200;
+                    }
                 }
             ]
         }
@@ -200,7 +205,7 @@ export default class Bar extends React.Component {
                 <Card title="饼图之二" style={{ marginTop: 10 }}>
                     <ReactEcharts option={this.getOption2()} theme='Imooc' style={{ height: 500 }}></ReactEcharts>
                 </Card>
-                <Card title="饼图之二" style={{ marginTop: 10 }}>
+                <Card title="饼图之三" style={{ marginTop: 10 }}>
                     <ReactEcharts option={this.getOption3()} theme='Imooc' style={{ height: 500 }}></ReactEcharts>
                 </Card>
             </div>
