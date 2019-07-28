@@ -23,6 +23,10 @@ import Permission from './pages/permission'
 import User from './pages/user'
 import BikeMap from './pages/map/bikeMap'
 import Nomatch from './pages/nomatch'
+import Bar from './pages/echarts/bar'
+import Pie from './pages/echarts/pie'
+import Line from './pages/echarts/line'
+
 export default class IRouter extends Component {
     render() {
         return (
@@ -54,6 +58,9 @@ export default class IRouter extends Component {
                                     <Route path='/user' component={User} />
                                     <Route path="/city" component={City} />
                                     <Route path="/order" component={Order} />
+                                    <Route path="/charts/bar" component={Bar} />
+                                    <Route path="/charts/pie" component={Pie} />
+                                    <Route path="/charts/line" component={Line} />
                                     <Route path="/permission" component={Permission} />
                                     <Route path='/bikeMap' component={BikeMap} />
                                     <Route component={Nomatch} />
