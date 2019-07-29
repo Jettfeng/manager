@@ -26,6 +26,7 @@ import Nomatch from './pages/nomatch'
 import Bar from './pages/echarts/bar'
 import Pie from './pages/echarts/pie'
 import Line from './pages/echarts/line'
+import Rich from './pages/rich'
 
 export default class IRouter extends Component {
     render() {
@@ -63,6 +64,7 @@ export default class IRouter extends Component {
                                     <Route path="/charts/line" component={Line} />
                                     <Route path="/permission" component={Permission} />
                                     <Route path='/bikeMap' component={BikeMap} />
+                                    <Route path='/rich' component={Rich} />
                                     <Route component={Nomatch} />
                                 </Switch>
                             </Admin>
