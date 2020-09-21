@@ -21,7 +21,8 @@ export default class Axios {
             loading = document.getElementById('ajaxLoading')
             loading.style.display = 'block'
         }
-        const baesApi = 'https://easy-mock.com/mock/5d2a9caa1bba03305e100ec5/api'
+        // const baesApi = 'https://easy-mock.com/mock/5d2a9caa1bba03305e100ec5/api'
+        const baesApi = 'http://rap2.taobao.org:38080/app/mock/266434'
         return new Promise((resolve, reject) => {
             axios({
                 url: options.url,

@@ -37,6 +37,9 @@ export default class BasicTable extends React.Component {
     }
 
     handleChange = (pagination, filters, sorter)=>{
+      console.log(pagination);
+      console.log(filters);
+      console.log(sorter);
         console.log("::" + sorter)
         this.setState({
             sortOrder:sorter.order
@@ -45,6 +48,7 @@ export default class BasicTable extends React.Component {
 
     // 删除操作
     handleDelete = (item)=>{
+      console.log(item);
         let id = item.id;
         Modal.confirm({
             title:'确认',
@@ -430,7 +434,7 @@ export default class BasicTable extends React.Component {
             {
                 title: '操作',
                 render:(text,item)=>{
-                    return <Button size="small" onClick={(item) => { this.handleDelete(item) }}>删除</Button>
+                    return <Button size="small" onClick={() => { this.handleDelete(item) }}>删除</Button>
                 }
             }
         ]
